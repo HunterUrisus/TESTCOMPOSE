@@ -1,0 +1,40 @@
+---
+    // Importa props (contenido y título por ejemplo)
+    const { title = "Mi sitio", children } = Astro.props;
+    import '../styles/global.css'
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+        <link rel="icon" type="image/png" href="/logo2.png" />
+    </head>
+    <body>
+        <header>
+        <h1>{title}</h1>
+        </header>
+
+        <main>
+        {children}
+        </main>
+
+        <footer>
+        <p>© 2025 DDGames Company</p>
+        </footer>
+    </body>
+    </html>
+
+<style>
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    header, footer {
+        background: #f3f3f3;
+        padding: 1rem;
+    }
+</style>
