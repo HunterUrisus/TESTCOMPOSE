@@ -1,28 +1,29 @@
 ---
     // Importa props (contenido y título por ejemplo)
-    const { title = "Mi sitio", children } = Astro.props;
+    const { title = "Mi sitio"} = Astro.props;
     import '../styles/global.css'
 ---
 
-<html lang="es">
+<html lang="es" class="">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>{title}</title>
         <link rel="icon" type="image/png" href="/logo2.png" />
     </head>
-    <body>
-        <header>
-        <h1>{title}</h1>
+    <body >
+        <header >
+            <h1 >{title}</h1>
         </header>
 
-        <main>
-        {children}
+        <main >
+            <slot />
         </main>
 
-        <footer>
-        <p>© 2025 DDGames Company</p>
+        <footer >
+            <p>© 2025 DDGames Company</p>
         </footer>
+
     </body>
     </html>
 
