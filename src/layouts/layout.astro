@@ -11,31 +11,32 @@
         <title>{title}</title>
         <link rel="icon" type="image/png" href="/logo2.png" />
     </head>
-    <body >
-        <header >
-            <h1 >{title}</h1>
+    <body class="flex flex-col min-h-screen">
+        <header class="p-4 w-full">
+            <h1 class="text-lg m-6">{title}</h1>
         </header>
 
-        <main >
+        <main class="flex-grow">
             <slot />
         </main>
 
-        <footer >
-            <p>© 2025 DDGames Company</p>
+        <footer class="p-4 w-full">
+            <p class="text-lg m-6">© 2025 DDGames Company</p>
         </footer>
-
     </body>
     </html>
 
 <style>
     body {
+        color: #fff;
         font-family: sans-serif;
         margin: 0;
         padding: 0;
         text-align: center;
     }
     header, footer {
-        background: #f3f3f3;
+        background: #272727;
+        color: #fff;
         padding: 1rem;
     }
 </style>
