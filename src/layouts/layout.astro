@@ -1,38 +1,39 @@
 ---
 // Importa props (contenido y título por ejemplo)
-const { title = "Proyecto Tesis" } = Astro.props;
+const { title = "Proyecto Tesis", baseURL="" } = Astro.props;
 import "../styles/global.css";
 ---
 
 <html lang="es" class="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-    <link rel="icon" type="image/png" href="/logo2.png" />
-  </head>
-  <body>
-    <header class="bg-gray-900 text-white py-4 shadow-md">
-      <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold">
-          <a href="/">Proyecto de Título</a>
-        </h1>
-        <nav class="space-x-4">
-          <a href="/" class="hover:underline">Inicio</a>
-          <a href="/about" class="hover:underline">Sobre Nosotros</a>
-        </nav>
-      </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+        <link rel="icon" type="image/png" href="/logo2.png" />
+    </head>
+
+    <body class="min-h-screen flex flex-col">
+        <header class="bg-gray-900 text-white py-4 shadow-md w-full">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold">
+            <a href="/">Proyecto de Título</a>
+            </h1>
+            <nav class="space-x-4">
+            <a href="/" class="hover:underline">Inicio</a>
+            <a href="/about" class="hover:underline">Sobre Nosotros</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-      <slot />
-    </main>
+        <main class="flex-grow">
+            <slot />
+        </main>
 
-    <footer>
-      <p>© 2025 DDGames Company</p>
-    </footer>
-  </body>
-</html>
+        <footer class="p-4 w-full text-white">
+            <p class="text-lg m-6">© 2025 DDGames Company</p>
+        </footer>
+    </body>
+    </html>
 
 <style>
   body {
@@ -47,8 +48,12 @@ import "../styles/global.css";
     padding: 1rem;
 
   }
+  main{
+    color:white;
+  }
   footer {
-    background: #f3f3f3;
+    background: #1a202c;
+    color: white
     padding: 1rem;
   }
 </style>
