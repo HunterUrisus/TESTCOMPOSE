@@ -2,18 +2,22 @@
 import Layout from '../layouts/layout.astro';
 ---
 
-<Layout title="Proyecto Tesis">
-	<div class="text-center">
-		<p class="text-lg m-6">Este juego busca enseñar lógica de programación mediante narrativa.</p>
-
-		<div class="relative h-screen bg-cover bg-center" style="background-image: url('/bobesponja.jpg')">
-			<div class="absolute inset-0 flex items-center justify-center">
-			<button class="btn neon-pulse">
-				<span>¡Inicia Aquí!</span>
-			</button>
-			</div>
+<Layout title="Proyecto Tesis" >
+	<!-- Contenedor solo del área principal -->
+	<div class="absolute inset-0 bg-cover bg-center opacity-40 -z-10"
+			style="background-image: url('/bobesponja.jpg');">
 		</div>
+	<div class="relative text-center h-screen overflow-hidden">
+		<!-- Imagen de fondo -->
 
-
+		<!-- Contenido sobre la imagen -->
+		<div class="relative z-10 flex flex-col items-center justify-center h-full">
+		<p class="text-lg mb-6">
+			Este juego busca enseñar lógica de programación mediante narrativa.
+		</p>
+		<button class="btn neon-pulse">
+			<span>¡Inicia Aquí!</span>
+		</button>
+		</div>
 	</div>
 </Layout>
