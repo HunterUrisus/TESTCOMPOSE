@@ -2,10 +2,10 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
-const repo = 'ProyectoTesis';
+/* const repo = 'ProyectoTesis'; */
 
 export default defineConfig({
-  base: `/${repo}/`, // ✅ Ruta base para GitHub Pages
+  base: `/`,
   vite: {
     plugins: [tailwindcss()]
   }
