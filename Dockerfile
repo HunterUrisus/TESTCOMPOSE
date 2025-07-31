@@ -21,6 +21,6 @@ EXPOSE 4321
 # Comando para iniciar la aplicación Astro
 # Asegúrate de que tu package.json tenga un script "start" o "preview"
 # Si usas el comando "start" para producción (normalmente para un servidor custom)
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
 # Si quieres usar "astro preview" para servir los archivos estáticos generados
 # CMD ["npx", "astro", "preview", "--host", "0.0.0.0"]

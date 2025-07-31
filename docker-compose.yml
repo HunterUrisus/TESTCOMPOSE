@@ -1,0 +1,13 @@
+version: '3.8' # Especifica la versión de Docker Compose, 3.8 es una buena opción actual
+
+services:
+  astro-app:
+    build: . # Indica a Docker Compose que construya la imagen desde el Dockerfile en el directorio actual
+    ports:
+      - "4321:4321" # Mapea el puerto 4321 de tu máquina local al puerto 4321 del contenedor
+    restart: unless-stopped # Reinicia el contenedor automáticamente si se detiene, a menos que lo detengas explícitamente
+    volumes:
+      # Si quieres que los cambios que hagas en tu código local se reflejen en el contenedor
+      # sin reconstruir la imagen cada vez (útil para desarrollo), descomenta la línea de abajo:
+      # - .:/app
+      - /app/node_modules # Esto excluye node_modules del mapeo de volumen para evitar problemas
