@@ -22,7 +22,7 @@ RUN npm ci --production
 COPY --from=builder /app/dist ./dist
 
 ENV NODE_ENV=production
-EXPOSE 3000
+EXPOSE 4321
 
 # Arranca el servidor de preview de Astro
 CMD ["npm", "run", "preview"]
