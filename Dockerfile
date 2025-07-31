@@ -1,26 +1,28 @@
-FROM node:20-alpine AS build
-
+# Etapa 1: Build
+FROM node:18-alpine AS builder
 WORKDIR /app
 
-COPY package*.json ./
+# Copiamos dependencias y build
+COPY package.json package-lock.json ./
+RUN npm ci
 
-RUN npm install --omit=dev
-
+# Copiamos el resto y generamos la salida estática
 COPY . .
-
 RUN npm run build
 
-FROM node:20-alpine
-
+# Etapa 2: Servidor con Node
+FROM node:18-alpine AS runner
 WORKDIR /app
 
-COPY --from=build /app/dist ./dist
+# Solo dependencias de producción
+COPY package.json package-lock.json ./
+RUN npm ci --production
 
-EXPOSE 4321
+# Copiamos los archivos generados
+COPY --from=builder /app/dist ./dist
 
-# Comando para iniciar la aplicación Astro
-# Asegúrate de que tu package.json tenga un script "start" o "preview"
-# Si usas el comando "start" para producción (normalmente para un servidor custom)
-CMD ["npm", "run", "dev"]
-# Si quieres usar "astro preview" para servir los archivos estáticos generados
-# CMD ["npx", "astro", "preview", "--host", "0.0.0.0"]
+ENV NODE_ENV=production
+EXPOSE 3000
+
+# Arranca el servidor de preview de Astro
+CMD ["npm", "run", "preview"]
